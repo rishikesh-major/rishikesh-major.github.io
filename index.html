@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal website for Rishikesh Major.">
+    <title>Rishikesh Major</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6f7f4;
+        --text: #1f2623;
+        --muted: #5f6b65;
+        --line: #d9ded6;
+        --panel: #ffffff;
+        --accent: #1b7f6e;
+        --accent-dark: #105c50;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--accent-dark);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+      }
+
+      .page {
+        width: min(1040px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 24px 0;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 32px;
+        align-items: center;
+        padding: 72px 0 56px;
+      }
+
+      .eyebrow {
+        color: var(--accent-dark);
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin: 0 0 12px;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 760px;
+        font-size: clamp(2.4rem, 7vw, 5rem);
+        line-height: 1;
+        margin-bottom: 24px;
+      }
+
+      .lead {
+        max-width: 680px;
+        color: var(--muted);
+        font-size: 1.2rem;
+        margin-bottom: 32px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 10px 16px;
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        background: var(--accent);
+        color: #ffffff;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--accent-dark);
+      }
+
+      .snapshot {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        padding: 24px;
+        box-shadow: 0 18px 50px rgba(31, 38, 35, 0.08);
+      }
+
+      .snapshot h2 {
+        font-size: 1rem;
+        margin-bottom: 16px;
+      }
+
+      .snapshot dl {
+        display: grid;
+        gap: 14px;
+        margin: 0;
+      }
+
+      .snapshot dt {
+        color: var(--muted);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .snapshot dd {
+        margin: 2px 0 0;
+      }
+
+      section {
+        padding: 48px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+
+      .section-heading h2 {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-bottom: 0;
+      }
+
+      .section-heading p {
+        max-width: 520px;
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        min-height: 190px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        padding: 20px;
+      }
+
+      .card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+        padding-bottom: 72px;
+      }
+
+      .contact p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 24px 0 36px;
+      }
+
+      @media (max-width: 760px) {
+        nav,
+        .section-heading,
+        .contact {
+          align-items: start;
+          flex-direction: column;
+          grid-template-columns: 1fr;
+        }
+
+        .hero,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page">
+      <nav aria-label="Main navigation">
+        <div class="brand">Rishikesh Major</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="hero" id="about">
+        <div>
+          <p class="eyebrow">Personal website</p>
+          <h1>Building, learning, and sharing work on the web.</h1>
+          <p class="lead">
+            Hi, I am Rishikesh. This is a simple home base for projects,
+            notes, experiments, and links I want to keep in one place.
+          </p>
+          <div class="actions">
+            <a class="button" href="#projects">View Projects</a>
+            <a class="button secondary" href="https://github.com/rishikesh-major">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="snapshot" aria-label="Quick profile details">
+          <h2>Quick Snapshot</h2>
+          <dl>
+            <div>
+              <dt>Focus</dt>
+              <dd>Software, web projects, and practical experiments</dd>
+            </div>
+            <div>
+              <dt>Currently</dt>
+              <dd>Setting up this GitHub Pages site</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>United States</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section id="projects">
+        <div class="section-heading">
+          <h2>Projects</h2>
+          <p>
+            A few starter sections for work in progress. Replace these with
+            real projects, links, screenshots, or notes as the site grows.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Project One</h3>
+            <p>
+              A short description of a project, what it does, and what you
+              learned while building it.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Project Two</h3>
+            <p>
+              Use this spot for a class project, coding experiment, portfolio
+              piece, or GitHub repository.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Project Three</h3>
+            <p>
+              Add a concise summary and link out to a demo, write-up, or source
+              code when it is ready.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div>
+          <h2>Contact</h2>
+          <p>
+            The easiest place to find my code is GitHub. More links can go here
+            later, like LinkedIn, email, or a resume.
+          </p>
+        </div>
+        <a class="button secondary" href="https://github.com/rishikesh-major">Visit GitHub</a>
+      </section>
+    </main>
+
+    <footer class="page">
+      <span>&copy; 2026 Rishikesh Major. Built with GitHub Pages.</span>
+    </footer>
+  </body>
+</html>
